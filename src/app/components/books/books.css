@@ -1,0 +1,99 @@
+ .container {
+            max-width: 1200px; /* Wider container for more cards per row */
+        }
+        h2 {
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .filter-section {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+            margin-bottom: 40px;
+        }
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 10px 15px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            outline: 0;
+        }
+        .card {
+            border: 1px solid #e0e0e0; /* Subtle border for definition */
+            border-radius: 12px; /* Rounded corners for cards */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05); /* Reduced and softer shadow */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            height: 100%; /* Ensure cards in a row have consistent height */
+            overflow: hidden; /* Ensures content respects border-radius */
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column; /* Stack content vertically */
+        }
+        .card:hover {
+            transform: translateY(-3px); /* Subtle lift on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow on hover */
+        }
+        .card-img-top {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            height: 250px; /* Fixed height for consistent image display */
+            object-fit: cover; /* Crop image to fit */
+            width: 100%;
+        }
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Push button to bottom */
+            flex-grow: 1; /* Allow body to grow */
+        }
+        .card-title {
+            font-weight: 600;
+            color: #007bff;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        .book-meta {
+            margin-bottom: 15px; /* Space below title and meta */
+        }
+        .book-author {
+            font-size: 0.95rem;
+            color: #555; /* Slightly darker grey for author */
+            font-weight: 500; /* Medium weight for author */
+            margin-bottom: 5px;
+        }
+        .book-author span {
+            font-weight: 400; /* Regular weight for "by" */
+            color: #6c757d; /* Lighter grey for "by" */
+        }
+        .book-genre {
+            font-size: 0.85rem;
+            color: #6c757d; /* Muted color for genre */
+            background-color: #e9f5ff; /* Light blue background for genre tag */
+            padding: 4px 8px;
+            border-radius: 5px;
+            display: inline-block; /* Allows padding and border-radius */
+            margin-top: 5px;
+        }
+        .btn-view-details {
+            background-color: #28a745; /* Green button */
+            border-color: #28a745;
+            border-radius: 6px;
+            padding: 8px 15px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            width: 100%; /* Full width button in card */
+            margin-top: auto; /* Push button to the bottom */
+        }
+        .btn-view-details:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }

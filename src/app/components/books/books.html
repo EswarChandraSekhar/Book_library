@@ -1,0 +1,174 @@
+<div class="container mt-4">
+    <h2>Our Book Collection</h2>
+
+    <!-- Filter and Search Section (Non-functional without JS) -->
+    <div class="filter-section">
+        <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+                <label for="genreFilter" class="form-label visually-hidden">Filter by Genre</label>
+                <select class="form-select" id="genreFilter" aria-label="Filter by Genre">
+                    <option selected value="all">All Genres</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Self-help">Self-help</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Children's">Children's</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                    <option value="History">History</option>
+                </select>
+            </div>
+            <div class="col-md-8">
+                <label for="bookSearch" class="form-label visually-hidden">Search Books</label>
+                <input type="text" class="form-control" id="bookSearch" placeholder="Search by title or author...">
+            </div>
+        </div>
+    </div>
+
+    <!-- Book List Section -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="bookList">
+        <!-- Book Card 1 -->
+        <div class="col">
+            <div class="card">
+                <img src="./the_hidden_hindu.jpg" class="card-img-top" alt="The Hidden Hindu Cover">
+                <div class="card-body">
+                    <h5 class="card-title">The Hidden Hindu</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Akshat Gupta</p>
+                        <span class="book-genre">Fantasy</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 2 -->
+        <div class="col">
+            <div class="card">
+                <img src="./the_house_maid.jpg" class="card-img-top" alt="The Housemaid Cover">
+                <div class="card-body">
+                    <h5 class="card-title">The Housemaid</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Freida McFadden</p>
+                        <span class="book-genre">Thriller</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 3 -->
+        <div class="col">
+            <div class="card">
+                <img src="./energize_your_mind.jpg" class="card-img-top" alt="Energize Your Mind Cover">
+                <div class="card-body">
+                    <h5 class="card-title">Energize Your Mind</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Gaur Gopal Das</p>
+                        <span class="book-genre">Self-help</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 4 -->
+        <div class="col">
+            <div class="card">
+                <img src="./stationery_shop_of_tehran.jpg" class="card-img-top"
+                    alt="The Stationery Shop of Tehran Cover">
+                <div class="card-body">
+                    <h5 class="card-title">The Stationery Shop of Tehran</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Marjan Kamali</p>
+                        <span class="book-genre">Romance</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 5 -->
+        <div class="col">
+            <div class="card">
+                <img src="./the_koala.jpg" class="card-img-top" alt="The Koala Who Could Cover">
+                <div class="card-body">
+                    <h5 class="card-title">The Koala Who Could</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Rachel Bright</p>
+                        <span class="book-genre">Children's</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 6 -->
+        <div class="col">
+            <div class="card">
+                <img src="./chaali_din.jpg" class="card-img-top" alt="Chaali Din Cover">
+                <div class="card-body">
+                    <h5 class="card-title">Chaali Din</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Dr. Dhugga Gurpreet</p>
+                        <span class="book-genre">Fiction</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 7 -->
+        <div class="col">
+            <div class="card">
+                <img src="./silent_patient.jpg" class="card-img-top" alt="The Silent Patient Cover">
+                <div class="card-body">
+                    <h5 class="card-title">The Silent Patient</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Alex Michaelides</p>
+                        <span class="book-genre">Thriller</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 8 -->
+        <div class="col">
+            <div class="card">
+                <img src="./lion_inside.jpg" class="card-img-top" alt="The Lion Inside Cover">
+                <div class="card-body">
+                    <h5 class="card-title">The Lion Inside</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Rachel Bright</p>
+                        <span class="book-genre">Children's</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 9 -->
+        <div class="col">
+            <div class="card">
+                <img src="./the_ayodhya_alliance.jpg" class="card-img-top" alt="The Ayodhya Alliance Cover">
+                <div class="card-body">
+                    <h5 class="card-title">The Ayodhya Alliance</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>Ashwin Sanghi</p>
+                        <span class="book-genre">Fantasy</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+        <!-- Book Card 10 -->
+        <div class="col">
+            <div class="card">
+                <img src="./harry_potter.jpg" class="card-img-top" alt="Harry Potter and the Philosopher's Stone Cover">
+                <div class="card-body">
+                    <h5 class="card-title">Harry Potter and the Philosopher's Stone</h5>
+                    <div class="book-meta">
+                        <p class="book-author"><span>by </span>J.K. Rowling</p>
+                        <span class="book-genre">Fantasy</span>
+                    </div>
+                    <button class="btn btn-view-details">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,7 @@
         <div class="row g-3 align-items-center">
             <div class="col-md-4">
                 <label for="genreFilter" class="form-label visually-hidden">Filter by Genre</label>
-                <select class="form-select" id="genreFilter" aria-label="Filter by Genre">
+                <select [(ngModel)]="genre" name="genre" class="form-select" id="genreFilter" aria-label="Filter by Genre">
                     <option selected value="all">All Genres</option>
                     <option value="Fantasy">Fantasy</option>
                     <option value="Thriller">Thriller</option>
@@ -22,14 +22,14 @@
             </div>
             <div class="col-md-8">
                 <label for="bookSearch" class="form-label visually-hidden">Search Books</label>
-                <input type="text" class="form-control" id="bookSearch" placeholder="Search by title or author...">
+                <input type="text" [(ngModel)]="searchbook" name="search" class="form-control" id="bookSearch" placeholder="Search by title or author...">
             </div>
         </div>
     </div>
 
     <!-- Book List Section -->
   <div class="row">
-  <div class="col-md-4 mb-4" *ngFor="let book of books">
+  <div class="col-md-4 mb-4" *ngFor="let book of books | search: searchbook : genre ">
     <div class="card h-100">
       <img [src]="book.image_url" class="card-img-top" [alt]="book.title + ' Cover'">
       <div class="card-body">

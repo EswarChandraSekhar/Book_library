@@ -2,28 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../book-service';
 import { Router } from '@angular/router';
 
-export class AddBookComponent {
-  constructor(private router: Router) {}
-
-  book = {
-    title: '',
-    author: '',
-    genre: '',
-    description: '',
-    imageUrl: ''
-  };
-
-  onSubmit(form: any) {
-    if (form.valid) {
-      console.log("Book submitted:", this.book);
-      // Do save logic here (e.g., send to service)
-
-      // ✅ Navigate to 'books' component
-      this.router.navigate(['/books']);
-    }
-  }
-}
-
 
 @Component({
   selector: 'app-add-book',
@@ -38,6 +16,7 @@ export class AddBook implements OnInit {
   genre: string = ''
   description: string = ''
   image_url: string = ''
+
 
 
   books: any[] = []

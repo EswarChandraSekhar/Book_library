@@ -8,9 +8,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./book-detail-dialogue.css']
 })
 export class BookDetailDialogue implements OnInit {
+  
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 
-  ngOnInit(): void {
-    console.log(this.data)
-  }
+  ngOnInit(): void {}
 }

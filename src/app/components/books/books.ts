@@ -11,6 +11,9 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class Books implements OnInit{
 
+  searchbook: string = '';
+  genre: string = 'all';
+
   books: any[] = []
 
   constructor(public Bookservice: BookService, public MatDialog: MatDialog){}

@@ -1,0 +1,14 @@
+<div class="book-detail-container">
+  <div class="book-image">
+    <img [src]="data.image_url" [alt]="data.title" />
+  </div>
+  <div class="book-info">
+    <h2>{{ data.title }}</h2>
+    <p><strong>Author:</strong> {{ data.author }}</p>
+    <p class="genre-chip">{{ data.genre }}</p>
+    <p><strong>Description:</strong> {{ data.description }}</p>
+
+    <button routerLink="/books" class="back-btn">← Back to Book List</button>
+  </div>
+</div> 
+

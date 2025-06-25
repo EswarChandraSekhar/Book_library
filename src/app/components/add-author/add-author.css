@@ -1,0 +1,10 @@
+ .form-section {
+      padding-bottom: 12px;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #1e90ff, #4f46e5);
+      border: none;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(to right, #2563eb, #1e40af);
+    }

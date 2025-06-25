@@ -1,0 +1,23 @@
+<div class="author-wrapper">
+<!-- Sidebar Navigation -->
+<div class="sidebar">
+    <a routerLink="/author/author-list" (click)="handleActiveTab('author-list')" class="nav-link" 
+        [ngClass]="{ 'active' : activeTab === 'author-list'}">🗂️ Author List</a>
+    <a routerLink="/author/add-author" (click)="handleActiveTab('add-author')" class="nav-link" 
+    [ngClass]="{ 'active' : activeTab === 'add-author'}">✍️ Add Author</a>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <!-- Intro Section -->
+    <div class="intro-box">
+    <h3 class="fw-bold">Welcome to Author Management</h3>
+    <p class="mb-0">Add new authors, edit biographies, and view the brilliant minds behind your library.</p>
+    </div>
+
+    <!-- Dynamic Content Section -->
+    <div class="content-box">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+</div>

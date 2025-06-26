@@ -37,6 +37,7 @@ export class AddBook implements OnInit {
 
     let book = {
       title: this.title,
+      image: this.image_url,
       author: this.author,
       genre: this.genre,
       description: this.description,
@@ -46,6 +47,7 @@ export class AddBook implements OnInit {
     this.Bookservice.addbookList(book)
 
     this.Router.navigate(['/books'])
+    
 
 
 

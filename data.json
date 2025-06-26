@@ -68,5 +68,75 @@
     "genre": "Fantasy",
     "description": "The first book in the magical Harry Potter series.",
     "image_url": "./harry_potter.jpg"
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "genre": "Self-help",
+    "description": "An easy & proven way to build good habits and break bad ones through tiny daily changes.",
+    "image_url": "./atomic_habits.jpg"
+  },
+  {
+    "title": "Ikigai",
+    "author": "Francesc Miralles and Héctor García",
+    "genre": "Self-help",
+    "description": "Explores the Japanese secret to a long and happy life, blending philosophy and lifestyle practices.",
+    "image_url": "./ikigai.jpg"
+  },
+  {
+    "title": "Wings of Fire",
+    "author": "A.P.J. Abdul Kalam",
+    "genre": "Autobiography",
+    "description": "The inspiring autobiography of India's former President and missile scientist A.P.J. Abdul Kalam.",
+    "image_url": "./wings_of_fire.jpg"
+  },
+  {
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "genre": "Fiction",
+    "description": "A philosophical tale about a shepherd’s journey to fulfill his destiny and find treasure.",
+    "image_url": "./the_alchemist.jpg"
+  },
+  {
+    "title": "The White Tiger",
+    "author": "Aravind Adiga",
+    "genre": "Fiction",
+    "description": "A darkly humorous novel exploring poverty, corruption, and class struggle in modern India.",
+    "image_url": "./white_tiger.jpg"
+  },
+  {
+    "title": "Sapiens: A Brief History of Humankind",
+    "author": "Yuval Noah Harari",
+    "genre": "History",
+    "description": "Traces the history of humans from early evolution to modern civilization in a gripping narrative.",
+    "image_url": "./sapiens.jpg"
+  },
+  {
+    "title": "The Subtle Art of Not Giving a F*ck",
+    "author": "Mark Manson",
+    "genre": "Self-help",
+    "description": "A brutally honest guide to living a better life by caring less about everything.",
+    "image_url": "./subtle_art.jpg"
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "genre": "Classic",
+    "description": "A classic novel exploring themes of race, justice, and morality in the American South.",
+    "image_url": "./to_kill_a_mockingbird.jpg"
+  },
+  {
+    "title": "The Fault in Our Stars",
+    "author": "John Green",
+    "genre": "Romance",
+    "description": "A heartbreaking and witty novel about two teens who fall in love while battling cancer.",
+    "image_url": "./fault_in_our_stars.jpg"
+  },
+  {
+    "title": "Rich Dad Poor Dad",
+    "author": "Robert T. Kiyosaki",
+    "genre": "Finance",
+    "description": "A personal finance book that compares two different approaches to money and success.",
+    "image_url": "./rich_dad_poor_dad.jpg"
   }
 ]

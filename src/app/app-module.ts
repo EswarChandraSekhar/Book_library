@@ -2,6 +2,7 @@ import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Home } from './components/home/home';
@@ -11,6 +12,9 @@ import { BookDetail } from './components/book-detail/book-detail';
 import { BookDetailDialogue } from './book-detail-dialogue/book-detail-dialogue';
 import { FormsModule } from '@angular/forms';
 import { SearchPipePipe } from './search-pipe-pipe';
+import { Author } from './components/author/author';
+import { AddAuthor } from './components/add-author/add-author';
+import { AuthorList } from './components/author-list/author-list';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { SearchPipePipe } from './search-pipe-pipe';
     Books,
     BookDetail,
     BookDetailDialogue,
-    SearchPipePipe
+    SearchPipePipe,
+    Author,
+    AddAuthor,
+    AuthorList
   ],
   imports: [
     BrowserModule,

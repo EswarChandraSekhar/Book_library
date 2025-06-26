@@ -4,7 +4,9 @@ import { Home } from './components/home/home';
 import { AddBook } from './components/add-book/add-book';
 import { Books } from './components/books/books';
 import { BookDetail } from './components/book-detail/book-detail';
-
+import { Author } from './components/author/author';
+import { AddAuthor } from './components/add-author/add-author';
+import { AuthorList } from './components/author-list/author-list';
 
 const routes: Routes = [
   {
@@ -18,6 +20,25 @@ const routes: Routes = [
   {
     path: 'books',
     component: Books
+  },
+  {
+    path: 'author',
+    component: Author,
+    children: [
+      {
+        path: 'add-author',
+        component: AddAuthor
+      },
+      {
+        path: 'author-list',
+        component: AuthorList
+      },
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'author-list'
+      }
+    ]
   },
   {
     path: '',

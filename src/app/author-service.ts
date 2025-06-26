@@ -10,52 +10,52 @@ export class AuthorService {
   authors = [
     {
       id: 1,
-      name: 'J.K. Rowling',
+      name: 'Akshat Gupta',
       dob: '1965-07-31',
-      nationality: 'British',
-      image: './j.k rowling.jpg',
-      biography: 'Famous for the Harry Potter series.'
+      nationality: 'Indian',
+      image: './Akshat_Gupta.jpg',
+      biography: 'THe Hidden Hindu'
     },
     {
       id: 2,
-      name: 'George R. R. Martin',
+      name: 'Freida McFadden',
       dob: '1948-09-20',
       nationality: 'American',
-      image: './George R. R. Martin.jpg',
-      biography: 'Known for A Song of Ice and Fire.'
+      image: './freida_mcfadden.jpg',
+      biography: 'The Housemaid'
     },
     {
       id: 3,
-      name: 'Chetan Bhagat',
+      name: 'Gaur Gopal Das',
       dob: '1974-04-22',
       nationality: 'Indian',
-      image: './chetan-bhagat.jpg',
+      image: './gaur.jpg',
       biography: 'Popular Indian author known for novels like "Five Point Someone" and "2 States".'
     },
-    {
-      id: 4,
-      name: 'Arundhati Roy',
-      dob: '1961-11-24',
-      nationality: 'Indian',
-      image: "./arundhati-roy.jpg",
-      biography: 'Author of "The God of Small Things", winner of the Booker Prize.'
-    },
-    {
-      id: 5,
-      name: 'Dan Brown',
-      dob: '1964-06-22',
-      nationality: 'American',
-      image: './dan brown.jpg',
-      biography: 'Famous for mystery thrillers like "The Da Vinci Code" and "Angels & Demons".'
-    }
-
   ];
 
   addauthorList(author:any){
-    this.authors.push(author)
+     let temp = localStorage.getItem('authorList')
+     if(!temp){
+      this.authors.push(author)
+       localStorage.setItem('authorList',JSON.stringify(this.authors))
+     }
+     else{
+        let authorList = JSON.parse(temp)
+        authorList.push(author)
+        localStorage.setItem('authorList',JSON.stringify(authorList))
+     }
+    
   }
 
   getauthors() {
-    return [...this.authors];
+
+    let temp = localStorage.getItem('authorList')
+    if(!temp){
+      localStorage.setItem('authorList',JSON.stringify(this.authors))
+    }
+    else{
+      return JSON.parse(temp)
+    }
   }
 }

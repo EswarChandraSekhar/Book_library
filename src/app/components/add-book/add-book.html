@@ -8,7 +8,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="bookAuthor" class="form-label">Author</label>
-                    <input type="text" class="form-control" [(ngModel)]="author" name="author" id="bookAuthor" placeholder="e.g., Alex Michaelides" required>
+                    <select class="form-control" [(ngModel)]="author" name="author" id="bookAuthor" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option *ngFor="let author of authorList" [value]="author.id">{{author.name}}</option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="bookGenre" class="form-label">Genre</label>

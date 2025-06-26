@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../book-service';
+import { AuthorService } from '../../author-service';
 import { Router } from '@angular/router';
 
 
@@ -20,11 +21,15 @@ export class AddBook implements OnInit {
 
 
   books: any[] = []
+  authorList: any[] = []
 
-  constructor(public Bookservice: BookService, public Router: Router){}
+  constructor(public Bookservice: BookService, public Router: Router,
+    public authorService: AuthorService
+  ){}
 
   ngOnInit(): void {
     this.books = this.Bookservice.getbookList()
+    this.authorList = this.authorService.getauthors()
   }
 
   handleSubmit(){
@@ -35,10 +40,24 @@ export class AddBook implements OnInit {
       return;
     }
 
+    console.log(this.authorList)
+    console.log(this.author)
+    let selected_author_list = this.authorList.filter(obj => {
+                  if (obj.id === this.author) {
+                    return true;
+                  }
+                  else {
+                    return false;
+                  }
+                })
+
+    let selected_author = selected_author_list[0]
+
     let book = {
       title: this.title,
       image: this.image_url,
-      author: this.author,
+      author: selected_author.name,
+      authorId: selected_author.id,
       genre: this.genre,
       description: this.description,
       image_url: this.image_url

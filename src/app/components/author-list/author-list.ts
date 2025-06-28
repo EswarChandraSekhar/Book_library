@@ -14,7 +14,14 @@ export class AuthorList {
   constructor(public AuthorServiceService: AuthorService){}
 
   ngOnInit(): void {
-    this.authors = this.AuthorServiceService.getauthors()
+    this.AuthorServiceService.getAuthorList().subscribe(
+      (response)=>{
+           this.authors = response;
+      },
+      (error)=>{
+
+      }
+    )
   }
 
 }

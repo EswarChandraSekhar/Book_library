@@ -22,7 +22,7 @@ export class AddAuthor implements OnInit{
    constructor(public AuthorService: AuthorService, public Router: Router ){}
   
     ngOnInit(): void {
-      this.authors = this.AuthorService.getauthors()
+    //  this.authors = this.AuthorService.getauthors()
     }
   
 
@@ -43,11 +43,14 @@ export class AddAuthor implements OnInit{
       biography: this.authorbiography
     }
 
-    this.AuthorService.addauthorList(author)
+    this.AuthorService.addAuthor(author).subscribe(
+      (response)=>{
+         this.Router.navigate(['/author'])
+      },
+      (error)=>{
 
-    //this.authors.push(author)
-
-    this.Router.navigate(['/author'])
+      }
+    )    
   }
 
 

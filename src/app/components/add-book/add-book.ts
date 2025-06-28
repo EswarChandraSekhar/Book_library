@@ -17,6 +17,7 @@ export class AddBook implements OnInit {
   genre: string = ''
   description: string = ''
   image_url: string = ''
+  bookId: string = ''
 
 
 
@@ -28,14 +29,20 @@ export class AddBook implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.books = this.Bookservice.getbookList()
-    this.authorList = this.authorService.getauthors()
+    this.authorService.getAuthorList().subscribe(
+      (response)=>{
+        this.authorList = response;
+      },
+      (error)=>{
+
+      }
+    )
   }
 
   handleSubmit(){
     if(this.title === '' || this.authorId === ''
     || this.genre === '' || this.description === null ||
-    this.image_url === ''){
+    this.image_url === ''|| this.bookId === ''){
       alert('All fields are mandatory!')
       return;
     }
@@ -58,24 +65,23 @@ export class AddBook implements OnInit {
 
 
     let book = {
+      bookId: parseInt(this.bookId),
       title: this.title,
-      image: this.image_url,
       author: selected_author.name,
-      authorId: selected_author.id,
+      authorId: parseInt(selected_author.id),
       genre: this.genre,
       description: this.description,
       image_url: this.image_url
     }
 
-    this.Bookservice.addbookList(book)
+    this.Bookservice.addBook(book).subscribe(
+      (response)=>{
+        this.Router.navigate(['/books'])
+      },
+      (error)=>{
 
-    this.Router.navigate(['/books'])
-    
-
-
-
-
-
+      }
+    )
   }
 
 }

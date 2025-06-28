@@ -10,16 +10,20 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./books.css']
 })
 export class Books implements OnInit{
-
   searchbook: string = '';
   genre: string = 'all';
-
   books: any[] = []
-
   constructor(public Bookservice: BookService, public MatDialog: MatDialog){}
 
   ngOnInit(): void {
-    this.books = this.Bookservice.getbookList()
+    this.Bookservice.getBookList().subscribe(
+      (response)=>{
+        this.books =  response;
+      },
+      (error)=>{
+
+      }
+    )
   }
 
   handleview(book: any) {

@@ -3,6 +3,10 @@
             <h2>Add New Book</h2>
             <form>
                 <div class="mb-3">
+                    <label for="bookID" class="form-label">Book ID</label>
+                    <input type="number" class="form-control" [(ngModel)]="bookId" name="bookID" id="bookTitle" placeholder="Enter Book ID" required>
+                </div>
+                <div class="mb-3">
                     <label for="bookTitle" class="form-label">Book Title</label>
                     <input type="text" class="form-control" [(ngModel)]="title" name="title" id="bookTitle" placeholder="e.g., The Silent Patient" required>
                 </div>

@@ -15,6 +15,7 @@ import { SearchPipePipe } from './search-pipe-pipe';
 import { Author } from './components/author/author';
 import { AddAuthor } from './components/add-author/add-author';
 import { AuthorList } from './components/author-list/author-list';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthorList } from './components/author-list/author-list';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     MatDialogModule
   ],

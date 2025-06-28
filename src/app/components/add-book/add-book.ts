@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class AddBook implements OnInit {
 
   title: string = ''
-  author: string = ''
+  authorId: string = ''
   genre: string = ''
   description: string = ''
   image_url: string = ''
@@ -33,7 +33,7 @@ export class AddBook implements OnInit {
   }
 
   handleSubmit(){
-    if(this.title === '' || this.author === ''
+    if(this.title === '' || this.authorId === ''
     || this.genre === '' || this.description === null ||
     this.image_url === ''){
       alert('All fields are mandatory!')
@@ -41,17 +41,21 @@ export class AddBook implements OnInit {
     }
 
     console.log(this.authorList)
-    console.log(this.author)
+    console.log(this.authorId)
+    
     let selected_author_list = this.authorList.filter(obj => {
-                  if (obj.id === this.author) {
+                  if (obj.id.toString() === this.authorId.toString()) {
                     return true;
                   }
                   else {
                     return false;
                   }
                 })
+             
+    console.log(selected_author_list)
 
     let selected_author = selected_author_list[0]
+
 
     let book = {
       title: this.title,

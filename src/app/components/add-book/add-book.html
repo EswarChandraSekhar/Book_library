@@ -8,7 +8,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="bookAuthor" class="form-label">Author</label>
-                    <select class="form-control" [(ngModel)]="author" name="author" id="bookAuthor" required>
+                    <select class="form-control" [(ngModel)]="authorId" name="author" id="bookAuthor" required>
                         <option selected disabled value="">Choose...</option>
                         <option *ngFor="let author of authorList" [value]="author.id">{{author.name}}</option>
                     </select>

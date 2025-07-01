@@ -8,7 +8,7 @@
     <p class="genre-chip">{{ data.genre }}</p>
     <p><strong>Description:</strong> {{ data.description }}</p>
 
-    <button routerLink="/books" class="back-btn">← Back to Book List</button>
+    <button (click)="handleBookDetail(data.bookId)"  class="back-btn">View More Details</button>
   </div>
 </div> 
 

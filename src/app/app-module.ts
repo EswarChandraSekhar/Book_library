@@ -16,6 +16,8 @@ import { Author } from './components/author/author';
 import { AddAuthor } from './components/add-author/add-author';
 import { AuthorList } from './components/author-list/author-list';
 import { HttpClientModule } from '@angular/common/http';
+import { Loader } from './loader/loader';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,16 @@ import { HttpClientModule } from '@angular/common/http';
     SearchPipePipe,
     Author,
     AddAuthor,
-    AuthorList
+    AuthorList,
+    Loader
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

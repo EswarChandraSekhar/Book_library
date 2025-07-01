@@ -1,0 +1,21 @@
+  .book-cover {
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .author-img {
+      height: 150px;
+      width: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #007bff;
+    }
+    .card {
+      border: none;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      border-radius: 15px;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }

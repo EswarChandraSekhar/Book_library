@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.snack-success {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.snack-error {
+  background-color: #f44336; /* Red */
+  color: white;
+}

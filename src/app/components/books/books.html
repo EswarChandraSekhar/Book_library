@@ -28,21 +28,25 @@
     </div>
 
     <!-- Book List Section -->
-  <div class="row">
-  <div class="col-md-4 mb-4" *ngFor="let book of books | search: searchbook : genre ">
-    <div class="card h-100">
-      <img [src]="book.image_url" class="card-img-top" [alt]="book.title + ' Cover'">
-      <div class="card-body">
-        <h5 class="card-title">{{ book.title }}</h5>
-        <div class="book-meta mb-2">
-          <p class="book-author"><strong>Author:</strong> {{ book.author }}</p>
-          <p class="book-genre"><strong>Genre:</strong> {{ book.genre }}</p>
+  <div  *ngIf="bookLoader ===false" class="row">
+    <div class="col-md-4 mb-4" *ngFor="let book of books | search: searchbook : genre ">
+      <div class="card h-100">
+        <img [src]="book.image_url" class="card-img-top" [alt]="book.title + ' Cover'">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <div class="book-meta mb-2">
+            <p class="book-author"><strong>Author:</strong> {{ book.author }}</p>
+            <p class="book-genre"><strong>Genre:</strong> {{ book.genre }}</p>
+          </div>
+          <p class="card-text"><strong>Description:</strong> {{ book.description }}</p>
+          <button class="btn btn-view-details" (click)="handleview(book)" >View Details</button>
         </div>
-        <p class="card-text"><strong>Description:</strong> {{ book.description }}</p>
-        <button class="btn btn-view-details" (click)="handleview(book)" >View Details</button>
       </div>
     </div>
   </div>
-</div> 
+  <div *ngIf="bookLoader === true" class="row mt-4">
+      <app-loader></app-loader>
+  </div>
+ 
 
 </div>

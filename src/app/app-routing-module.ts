@@ -22,6 +22,10 @@ const routes: Routes = [
     component: Books
   },
   {
+    path: 'book/:id',
+    component: BookDetail
+  },
+  {
     path: 'author',
     component: Author,
     children: [

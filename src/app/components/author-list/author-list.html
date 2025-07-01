@@ -10,9 +10,10 @@
           <th>Date of Birth</th>
           <th>Nationality</th>
           <th>Biography</th>
+          <th>Action</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody *ngIf="authorListLoader === false">
         <!-- Sample authors -->
         <tr *ngFor="let author of authors">
           <td>{{author.id}}</td>
@@ -23,8 +24,14 @@
           <td>{{author.dob}}</td>
           <td>{{author.nationality}}</td>
           <td>{{author.biography}}</td>
+          <td><i class="bi bi-trash text-danger" role="button" (click)="onDelete(author)"></i></td>
         </tr>
         <!-- Add dynamic data here -->
+      </tbody>
+      <tbody *ngIf="authorListLoader === true">
+         <tr >
+           <td colspan="7" class="text-center"><app-loader></app-loader></td>
+         </tr>
       </tbody>
     </table>
   </div>

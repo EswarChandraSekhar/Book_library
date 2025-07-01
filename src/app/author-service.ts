@@ -19,7 +19,10 @@ export class AuthorService {
   addAuthor(author: any):Observable<any>{
     return this.http.post<any>(this.url+'/api/authors',author)
   }
-  
+  //delete author
+  deleteAuthor(author:any):Observable<any>{
+    return this.http.delete<any>(this.url+"/api/authors/"+author.id)
+  }
 
 
 

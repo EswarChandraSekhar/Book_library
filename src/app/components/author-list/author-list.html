@@ -24,7 +24,10 @@
           <td>{{author.dob}}</td>
           <td>{{author.nationality}}</td>
           <td>{{author.biography}}</td>
-          <td><i class="bi bi-trash text-danger" role="button" (click)="onDelete(author)"></i></td>
+          <td>
+            <i class="bi bi-trash text-danger" role="button" (click)="onDelete(author)"></i>
+            <i class="bi bi-pencil-square" style="margin-left:10px;" role="button" (click)="onEdit(author)"></i>
+          </td>
         </tr>
         <!-- Add dynamic data here -->
       </tbody>

@@ -18,6 +18,10 @@ export class BookService {
   addBook(book:any):Observable<any>{
     return this.http.post<any>(this.url+"/api/books",book)
   }
+  //get book details
+  getBookDetail(bookId: any):Observable<any>{
+    return this.http.get<any>(this.url+"/api/books/"+bookId)
+  }
 
 
 

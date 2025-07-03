@@ -19,6 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { Loader } from './loader/loader';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditAuthorDialog } from './components/edit-author-dialog/edit-author-dialog';
+import { BookManagement } from './components/book-management/book-management';
+import { Todo } from './todo/todo';
+import { Addtodo } from './addtodo/addtodo';
+import { Todolist } from './todolist/todolist';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { EditAuthorDialog } from './components/edit-author-dialog/edit-author-di
     AddAuthor,
     AuthorList,
     Loader,
-    EditAuthorDialog
+    EditAuthorDialog,
+    BookManagement,
+    Todo,
+    Addtodo,
+    Todolist
   ],
   imports: [
     BrowserModule,

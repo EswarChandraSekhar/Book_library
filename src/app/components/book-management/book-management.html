@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 class="mb-4 text-center text-success">📚 Book List</h2>
+  <div class="table-container">
+    <table class="table table-striped table-hover align-middle">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="bookListLoader === false">
+        <tr *ngFor="let book of books">
+          <td>{{ book.bookId }}</td>
+          <td>
+            <img [src]="book.image_url" alt="{{ book.title }}" width="80" height="50" class="rounded-circle border">
+          </td>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.genre }}</td>
+          <td>{{ book.description }}</td>
+          <td>
+            <i class="bi bi-trash text-danger" role="button" (click)="onDelete(book)"></i>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="bookListLoader === true">
+        <tr>
+          <td colspan="7" class="text-center"><app-loader></app-loader></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

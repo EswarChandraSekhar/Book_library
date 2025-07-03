@@ -7,6 +7,10 @@ import { BookDetail } from './components/book-detail/book-detail';
 import { Author } from './components/author/author';
 import { AddAuthor } from './components/add-author/add-author';
 import { AuthorList } from './components/author-list/author-list';
+import { BookManagement } from './components/book-management/book-management';
+import { Todo } from './todo/todo';
+import { Addtodo } from './addtodo/addtodo';
+import { Todolist } from './todolist/todolist';
 
 const routes: Routes = [
   {
@@ -20,6 +24,10 @@ const routes: Routes = [
   {
     path: 'books',
     component: Books
+  },
+  {
+    path: 'book-management',
+    component: BookManagement
   },
   {
     path: 'book/:id',
@@ -42,6 +50,24 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: 'author-list'
       }
+    ]
+  },
+  {
+    path: 'todo',
+    component: Todo,
+    children:[{
+      path: 'addtodo',
+      component: Addtodo
+    },
+    {
+      path: 'todolist',
+      component: Todolist
+    },
+    {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: 'todolist'
+    }
     ]
   },
   {

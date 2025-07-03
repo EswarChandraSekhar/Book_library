@@ -1,0 +1,23 @@
+      
+  <!-- Sidebar Navigation -->
+<div class="col-12 row">
+ <div class="col-2">
+   <div class="sidebar">
+     <a routerLink="/todo/todolist" (click)="handleActiveTab('todo-list')" class="nav-link" 
+       [ngClass]="{ 'active': activeTab === 'todo-list' }">📝 Task List</a>
+     <a routerLink="/todo/addtodo" (click)="handleActiveTab('add-todo')" class="nav-link" 
+       [ngClass]="{ 'active': activeTab === 'add-todo' }">➕ Add Task</a>
+   </div>
+  </div>
+  
+
+
+ <div class="col-10">
+    <!-- Main Content -->
+    <div class="intro-box" style="margin-top: 10px">
+      <h3 class="fw-bold">Welcome to Your ToDo Dashboard</h3>
+      <p class="mb-0">Track your tasks, stay organized, and boost your productivity.</p>
+    </div>
+  <router-outlet></router-outlet>
+ </div>
+</div>

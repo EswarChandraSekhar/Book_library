@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo Form</title>
+
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">📝 Add New Task</h4>
+    </div>
+    <div class="card-body">
+      <form>
+        <!-- Task ID -->
+        <div class="mb-3">
+          <label for="taskId" class="form-label">Task ID</label>
+          <input type="text" [(ngModel)]="taskid" name="task.id"  class="form-control" id="taskId" placeholder="Enter Task ID">
+        </div>
+
+        <!-- Task Name -->
+        <div class="mb-3">
+          <label for="taskName" class="form-label">Task Name</label>
+          <input type="text" [(ngModel)]="taskname" name="taskname"  class="form-control" id="taskName" placeholder="Enter Task Name">
+        </div>
+
+        <!-- Task Category -->
+        <div class="mb-3">
+          <label for="taskCategory" class="form-label">Task Category</label>
+          <input type="text" [(ngModel)]="category" name="category"  class="form-control" id="taskCategory" placeholder="e.g., Work, Personal">
+        </div>
+
+        <!-- Completed Selector -->
+        <div class="mb-3">
+          <label for="isCompleted" class="form-label">Status</label>
+          <select [(ngModel)]="doneornot" name="doneornot" class="form-select" id="isCompleted">
+            <option value="false">Not Completed</option>
+            <option value="true">Completed</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" (click)="handlesubmit()" class="btn btn-success w-100">✅ Add Task</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

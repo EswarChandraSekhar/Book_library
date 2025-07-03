@@ -21,7 +21,7 @@
             <img [src]="author.image" alt="{{ author.name }}" width="50" height="50" class="rounded-circle border">
           </td>
           <td>{{author.name}}</td>
-          <td>{{author.dob}}</td>
+          <td>{{author.dob | date:'dd-MM-yyyy' }}</td>
           <td>{{author.nationality}}</td>
           <td>{{author.biography}}</td>
           <td><i class="bi bi-trash text-danger" role="button" (click)="onDelete(author)"></i></td>

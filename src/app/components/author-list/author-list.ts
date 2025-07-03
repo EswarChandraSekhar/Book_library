@@ -30,7 +30,7 @@ export class AuthorList {
   successNotification(value: string){
      this.snackBar.open(value,'close',{
           duration:5000,
-          panelClass:"snack-success"
+          panelClass: ['snack-success'] 
         })
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthorService } from '../../author-service';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './add-author.css'
 })
 export class AddAuthor implements OnInit{
-
+  @Input() preAuthorData: any = null;
   authorId: any = null;
   authorname: string = ''
   authorimage: string = ''
@@ -22,7 +22,14 @@ export class AddAuthor implements OnInit{
    constructor(public AuthorService: AuthorService, public Router: Router ){}
   
     ngOnInit(): void {
-    //  this.authors = this.AuthorService.getauthors()
+      if(this.preAuthorData !== null){
+        this.authorId = this.preAuthorData.id;
+        this.authorname = this.preAuthorData.name;
+        this.authorimage = this.preAuthorData.image;
+        this.authordob = this.preAuthorData.dob;
+        this.authornationality = this.preAuthorData.nationality;
+        this.authorbiography = this.preAuthorData.biography;
+      }
     }
   
 

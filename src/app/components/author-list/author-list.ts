@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthorService } from '../../author-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { EditAuthorDialog } from '../edit-author-dialog/edit-author-dialog';
 @Component({
   selector: 'app-author-list',
   standalone: false,
@@ -12,7 +14,9 @@ export class AuthorList {
   authors: any[] = []
   authorListLoader: boolean = true;
 
-  constructor(public AuthorServiceService: AuthorService,private snackBar: MatSnackBar){}
+  constructor(public AuthorServiceService: AuthorService,private snackBar: MatSnackBar,
+    private matDialog: MatDialog
+  ){}
 
   ngOnInit(): void {
     this.authorListLoader = true;
@@ -52,6 +56,13 @@ export class AuthorList {
 
       }
     )
+  }
+
+  onEdit(author:any){
+    this.matDialog.open(EditAuthorDialog,{
+      data: author,
+      width:'600px'
+    })
   }
 
 }

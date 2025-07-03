@@ -18,6 +18,7 @@ import { AuthorList } from './components/author-list/author-list';
 import { HttpClientModule } from '@angular/common/http';
 import { Loader } from './loader/loader';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EditAuthorDialog } from './components/edit-author-dialog/edit-author-dialog';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     Author,
     AddAuthor,
     AuthorList,
-    Loader
+    Loader,
+    EditAuthorDialog
   ],
   imports: [
     BrowserModule,

@@ -1,53 +1,119 @@
 <div class="container my-5">
+  <!-- back button -->
+  <div class="mb-4">
+    <button routerLink="/books" class="btn btn-outline-primary d-inline-flex align-items-center">
+      <i  class="bi bi-arrow-left me-2"></i> Back to Books
+    </button>
+  </div>
+  <div *ngIf="bookDetailLoader === false">
     <!-- Book Header -->
     <div class="row align-items-center mb-5">
       <div class="col-md-4 text-center">
-        <img src="/harry_potter.jpg" alt="Harry Potter" class="book-cover w-100">
+        <img [src]="bookDetailData.image_url" class="book-cover">
       </div>
       <div class="col-md-8">
-        <h2 class="text-primary">Harry Potter</h2>
-        <h5><strong>Genre:</strong> Thriller</h5>
-        <p class="mt-3"><strong>Description:</strong> Harry Potter Good Book</p>
-        <p><strong>Author:</strong> Marjan Kamali</p>
+        <h2 class="display-5 text-dark fw-bold">{{bookDetailData.title}}</h2>
+        <h6 class="text-muted mb-3">Genre: <span class="text-dark">{{bookDetailData.genre}}</span></h6>
+        <p class="text-secondary"><strong>Description:</strong>{{bookDetailData.description}}</p>
+        <p class="text-secondary"><strong>Author:</strong>{{bookDetailData.authorDetails.name}}</p>
+        <!-- Add to Cart Section -->
+        <div class="mt-4">
+          <div class="d-flex align-items-center gap-3">
+            <input type="number" class="form-control quantity-input" value="1" min="1" style="width: 100px;">
+            <button class="btn btn-success d-flex align-items-center">
+              <i class="bi bi-cart-plus me-2"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Star Rating -->
+        <div class="d-flex align-items-center mt-3">
+          <div class="rating-stars me-2">
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-fill text-warning"></i>
+            <i class="bi bi-star-half text-warning"></i>
+            <i class="bi bi-star text-warning"></i>
+          </div>
+          <span class="text-muted small">(3.5 out of 5 · 142 reviews)</span>
+        </div>
       </div>
     </div>
-
-    <!-- Book Index Content -->
-    <div class="card p-4 mb-5">
-      <h4 class="section-title text-primary">📚 Book Preview (Index)</h4>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">The Prophecy Awakens</li>
-        <li class="list-group-item">Chronicles of Lord Vishnu</li>
-        <li class="list-group-item">The Secret Experiments</li>
-        <li class="list-group-item">Time Travel and Ancient Sages</li>
-        <li class="list-group-item">The Rise of Pralay</li>
-        <li class="list-group-item">The Myth of Immortality</li>
-        <li class="list-group-item">The Third Eye Activation</li>
-        <li class="list-group-item">Encounters with Devas and Asuras</li>
-        <li class="list-group-item">The Agyaatvaas of Om Shastri</li>
-        <li class="list-group-item">Genetics of the Saptrishis</li>
-        <li class="list-group-item">Secrets of the Himalayas</li>
-        <li class="list-group-item">The Battle of Dharma vs Adharma</li>
-        <li class="list-group-item">The Trishul Protocol</li>
-        <li class="list-group-item">Modern Science Meets Mythology</li>
-        <li class="list-group-item">The Truth Beyond Time</li>
-      </ul>
+    <!-- Book Index -->
+    <div class="card p-4 mb-5 bg-light border-0 shadow-sm">
+      <h4 class="section-title text-primary mb-4">📚 Book Preview (Index)</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="styled-index-list">
+            <li><span>📘</span> The Prophecy Awakens</li>
+            <li><span>📘</span> Chronicles of Lord Vishnu</li>
+            <li><span>📘</span> The Secret Experiments</li>
+            <li><span>📘</span> Time Travel and Ancient Sages</li>
+            <li><span>📘</span> The Rise of Pralay</li>
+            <li><span>📘</span> The Myth of Immortality</li>
+            <li><span>📘</span> The Third Eye Activation</li>
+            <li><span>📘</span> Encounters with Devas and Asuras</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="styled-index-list">
+            <li><span>📘</span> The Agyaatvaas of Om Shastri</li>
+            <li><span>📘</span> Genetics of the Saptrishis</li>
+            <li><span>📘</span> Secrets of the Himalayas</li>
+            <li><span>📘</span> The Battle of Dharma vs Adharma</li>
+            <li><span>📘</span> The Trishul Protocol</li>
+            <li><span>📘</span> Modern Science Meets Mythology</li>
+            <li><span>📘</span> The Truth Beyond Time</li>
+          </ul>
+        </div>
+      </div>
     </div>
-
     <!-- Author Info -->
-    <div class="card p-4">
-      <h4 class="section-title text-primary">👤 About the Author</h4>
+    <div class="card p-4 bg-white border-0 shadow-sm mb-5">
+      <h4 class="section-title text-primary mb-4">👤 About the Author</h4>
       <div class="row align-items-center">
-        <div class="col-md-3 text-center">
-          <img src="/marjan-kamali.jpg" alt="Marjan Kamali" class="author-img">
+        <div class="col-md-3 text-center mb-3 mb-md-0">
+          <img [src]="bookDetailData.authorDetails.image"  class="author-img shadow-sm">
         </div>
         <div class="col-md-9">
-          <h5>Marjan Kamali</h5>
-          <p><strong>Date of Birth:</strong> October 11, 1960</p>
-          <p><strong>Nationality:</strong> Iran</p>
-          <p><strong>Biography:</strong> Marjan Kamali New Author</p>
+          <h5 class="fw-bold">{{bookDetailData.authorDetails.name}}</h5>
+          <p class="text-secondary mb-1"><strong>Date of Birth:</strong>{{bookDetailData.authorDetails.dob}}</p>
+          <p class="text-secondary mb-1"><strong>Nationality:</strong> {{bookDetailData.authorDetails.nationality}}</p>
+          <p class="text-secondary"><strong>Biography:</strong> {{bookDetailData.authorDetails.biography}}</p>
         </div>
       </div>
     </div>
-
+    <!-- Reviews -->
+    <div class="card p-4 bg-white border-0 shadow-sm">
+      <h4 class="section-title text-primary mb-4">💬 Reader Reviews</h4>
+      <div class="mb-3">
+        <strong>John Doe</strong> <span class="text-muted small">– March 2025</span>
+        <div class="text-warning mb-1">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star"></i>
+          <i class="bi bi-star"></i>
+        </div>
+        <p class="text-secondary">Interesting concepts with a mythological twist. Loved the part about the Saptrishis!
+        </p>
+      </div>
+      <div class="mb-3">
+        <strong>Ayesha Mehra</strong> <span class="text-muted small">– February 2025</span>
+        <div class="text-warning mb-1">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-half"></i>
+          <i class="bi bi-star"></i>
+        </div>
+        <p class="text-secondary">Could’ve had better pacing, but very imaginative story. Great for mythology lovers.
+        </p>
+      </div>
+    </div>
   </div>
+  <div *ngIf="bookDetailLoader === true" class="mt-4">
+    <app-loader></app-loader>
+  </div>
+
+</div>

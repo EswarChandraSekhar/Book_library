@@ -17,7 +17,7 @@ export class BookDetailDialogue implements OnInit {
 
   ngOnInit(): void {}
   handleBookDetail(bookId: any){
-    this.router.navigate(['book',bookId])
+    this.router.navigate(['book',bookId]) // localhost:8081/book/1
     this.dialogRef.close();
   }
 }

@@ -13,4 +13,8 @@ export class EditAuthorDialog {
   ){
 
   }
+
+  handleClose(){
+    this.dialogRef.close("closed")
+  }
 }

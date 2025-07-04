@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AuthorService } from '../../author-service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-author',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddAuthor implements OnInit{
   @Input() preAuthorData: any = null;
+  @Output() authorUpdated: any = new EventEmitter()
   authorId: any = null;
   authorname: string = ''
   authorimage: string = ''
@@ -19,7 +21,7 @@ export class AddAuthor implements OnInit{
 
   authors: any[] = [];
 
-   constructor(public AuthorService: AuthorService, public Router: Router ){}
+   constructor(public AuthorService: AuthorService, public Router: Router, public snackbar: MatSnackBar ){}
   
     ngOnInit(): void {
       if(this.preAuthorData !== null){
@@ -49,15 +51,29 @@ export class AddAuthor implements OnInit{
       nationality: this.authornationality,
       biography: this.authorbiography
     }
+    if(this.preAuthorData === null){
+      this.AuthorService.addAuthor(author).subscribe(
+        (response)=>{
+          this.Router.navigate(['/author'])
+        },
+        (error)=>{
 
-    this.AuthorService.addAuthor(author).subscribe(
-      (response)=>{
-         this.Router.navigate(['/author'])
-      },
-      (error)=>{
+        }
+      )   
+    }
+    else{
 
-      }
-    )    
+      this.AuthorService.updateAuthor(this.preAuthorData.id,author).subscribe(
+        (response)=>{
+          this.authorUpdated.emit()
+          this.snackbar.open('Author Updated Successfully!','success',{duration:3000,panelClass:"snack-success"})
+        },
+        (error)=>{
+
+        }
+      )
+    }
+   
   }
 
 

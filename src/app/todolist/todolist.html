@@ -1,4 +1,4 @@
-<div class="card shadow-sm">
+<div *ngIf="enableEdit === false" class="card shadow-sm">
     <div class="card-header bg-secondary text-white">
       <h5 class="mb-0">📋 Task List</h5>
     </div>
@@ -21,7 +21,8 @@
             <td>{{task.category}}</td>
             <td><span class="badge bg-warning text-dark">{{task.taskCompleted}}</span></td>
             <td>
-              <button class="btn btn-sm btn-outline-primary" (click)="onDelete(task)">Delete</button>
+              <button class="btn btn-sm btn-outline-danger" (click)="onDelete(task)">Delete</button>
+              <button class="btn btn-sm btn-outline-primary" style="margin-left:10px;" (click)="onEdit(task)">Edit</button>
             </td>
           </tr>
         </tbody>
@@ -33,5 +34,12 @@
       </table>
     </div>
   </div>
+
+<div *ngIf="enableEdit === true">
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-primary btn-sm" (click)="handleBack()">back</button>
+  </div>
+  <app-addtodo [taskData]="selectedTodo" (taskUpdated)="handleTaskUpdated()"></app-addtodo>
+</div>
 
 

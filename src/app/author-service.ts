@@ -24,6 +24,11 @@ export class AuthorService {
     return this.http.delete<any>(this.url+"/api/authors/"+author.id)
   }
 
+  //update
+  updateAuthor(id: Number, author: any){
+    return this.http.put<any>(this.url+"/api/authors/"+id, author)
+  }
+
 
 
 

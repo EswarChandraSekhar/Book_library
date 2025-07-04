@@ -21,6 +21,9 @@ export class TodoService {
  deleteTodo(id: string): Observable<any> {
   return this.http.delete<any>(this.url + '/api/todos/' + id);
 }
+  updateTodo(id: string, task: any):Observable<any>{
+    return this.http.put<any>(this.url+"/api/todos/"+id, task)
+  }
 
 
 

@@ -12,6 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class Todolist implements OnInit{
   tasks: any[] = []
   todolistloader:boolean = true;
+  enableEdit: boolean = false;
+  selectedTodo: any = null;
 
 
 
@@ -56,6 +58,31 @@ export class Todolist implements OnInit{
     (error) => {
     }
   );
+}
+
+onEdit(todo: any){
+    this.selectedTodo = todo;
+    this.enableEdit = true;
+}
+handleBack(){
+  this.selectedTodo = null;
+  this.enableEdit = false;
+}
+
+handleTaskUpdated(){
+  this.selectedTodo = null;
+  this.enableEdit = false;
+  this.todolistloader = true;
+   this.todoservice.gettodoList().subscribe(
+      (Response)=>{
+        this.tasks = Response
+        this.todolistloader = false;
+      },
+      (error)=>{
+        this.todolistloader = false;
+
+      } 
+    )
 }
 
 

@@ -19,7 +19,10 @@ export class AuthorList {
   ){}
 
   ngOnInit(): void {
-    this.authorListLoader = true;
+    this.loadAuthors()
+  }
+  loadAuthors(){
+     this.authorListLoader = true;
     this.AuthorServiceService.getAuthorList().subscribe(
       (response)=>{
            this.authors = response;
@@ -30,7 +33,6 @@ export class AuthorList {
       }
     )
   }
-
   successNotification(value: string){
      this.snackBar.open(value,'close',{
           duration:5000,
@@ -59,10 +61,18 @@ export class AuthorList {
   }
 
   onEdit(author:any){
-    this.matDialog.open(EditAuthorDialog,{
+   let dialogRef =  this.matDialog.open(EditAuthorDialog,{
       data: author,
       width:'600px'
     })
+
+    dialogRef.afterClosed().subscribe(
+      res=>{
+        if(res === 'closed'){
+          this.loadAuthors()
+        }
+      }
+    )
   }
 
 }

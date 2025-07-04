@@ -18,5 +18,10 @@ export class TodoService {
     return this.http.post<any>(this.url+'/api/todos', task)
   }
 
+ deleteTodo(id: string): Observable<any> {
+  return this.http.delete<any>(this.url + '/api/todos/' + id);
+}
+
+
 
 }

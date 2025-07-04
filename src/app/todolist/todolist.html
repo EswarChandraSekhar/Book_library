@@ -21,7 +21,7 @@
             <td>{{task.category}}</td>
             <td><span class="badge bg-warning text-dark">{{task.taskCompleted}}</span></td>
             <td>
-              <button class="btn btn-sm btn-outline-primary">Edit</button>
+              <button class="btn btn-sm btn-outline-primary" (click)="onDelete(task)">Delete</button>
             </td>
           </tr>
         </tbody>

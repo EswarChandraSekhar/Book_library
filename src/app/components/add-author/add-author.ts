@@ -10,8 +10,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './add-author.css'
 })
 export class AddAuthor implements OnInit{
+
   @Input() preAuthorData: any = null;
+  
   @Output() authorUpdated: any = new EventEmitter()
+
   authorId: any = null;
   authorname: string = ''
   authorimage: string = ''

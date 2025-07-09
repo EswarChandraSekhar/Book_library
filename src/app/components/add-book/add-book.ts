@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input,  Output } from '@angular/core';
 import { BookService } from '../../book-service';
 import { AuthorService } from '../../author-service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -11,6 +13,9 @@ import { Router } from '@angular/router';
   styleUrl: './add-book.css'
 })
 export class AddBook implements OnInit {
+  @Input() BookData: any = null;
+  @Output() BookUpdated: any = new EventEmitter()
+
 
   title: string = ''
   authorId: string = ''
@@ -19,25 +24,37 @@ export class AddBook implements OnInit {
   image_url: string = ''
   bookId: string = ''
 
-
-
   books: any[] = []
   authorList: any[] = []
 
+
   constructor(public Bookservice: BookService, public Router: Router,
-    public authorService: AuthorService
+    public authorService: AuthorService, public snackbar: MatSnackBar 
   ){}
 
   ngOnInit(): void {
-    this.authorService.getAuthorList().subscribe(
-      (response)=>{
-        this.authorList = response;
-      },
-      (error)=>{
+  // To Load author list first
+  this.authorService.getAuthorList().subscribe(
+    (response) => {
+      this.authorList = response;
+    },
+    (error) => {
 
-      }
-    )
+        }
+  );
+
+  if (this.BookData !== null) {
+    this.title = this.BookData.title;
+    this.authorId = this.BookData.authorId;
+    this.genre = this.BookData.genre;
+    this.description = this.BookData.description;
+    this.image_url = this.BookData.image_url;
+    this.bookId = this.BookData.bookId;
   }
+}
+
+
+  
 
   handleSubmit(){
     if(this.title === '' || this.authorId === ''
@@ -74,14 +91,26 @@ export class AddBook implements OnInit {
       image_url: this.image_url
     }
 
+
+    if (this.BookData === null) {
     this.Bookservice.addBook(book).subscribe(
-      (response)=>{
-        this.Router.navigate(['/books'])
+      (response) => {
+        this.Router.navigate(['/books']);
       },
-      (error)=>{
-
+      (error) => {
+        
       }
-    )
-  }
+    );
+  } else {
+    this.Bookservice.updateBook(this.BookData.bookId, book).subscribe(
+      (response) => {
+        this.BookUpdated.emit();
+        this.snackbar.open('Book Updated Successfully!','success',{duration:3000,panelClass:"snack-success"})
+      },
+      (error) => {
+      }
+    );
+  } 
 
+}
 }

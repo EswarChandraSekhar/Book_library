@@ -23,6 +23,10 @@ export class BookService {
     return this.http.get<any>(this.url+"/api/books/"+bookId)
   }
 
+  updateBook(bookId: string, book: any):Observable<any>{
+    return this.http.put<any>(this.url+"/api/books/"+bookId, book)
+  }
+
 
 
   // addbookList(book:any){

@@ -23,6 +23,8 @@ import { BookManagement } from './components/book-management/book-management';
 import { Todo } from './todo/todo';
 import { Addtodo } from './addtodo/addtodo';
 import { Todolist } from './todolist/todolist';
+import { Login } from './login/login';
+import { Register } from './register/register';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { Todolist } from './todolist/todolist';
     BookManagement,
     Todo,
     Addtodo,
-    Todolist
+    Todolist,
+    Login,
+    Register
   ],
   imports: [
     BrowserModule,

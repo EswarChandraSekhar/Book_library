@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BookManagementService } from '../book-management-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BookService } from '../../book-service';
 
 @Component({
   selector: 'app-book-management',
@@ -12,10 +13,13 @@ export class BookManagement {
 
   books: any[] = [];
   bookListLoader: boolean = true;
+  selectedBook: any = null;
+  enableEdit: boolean = false;
 
   constructor(
     private BookManagementService: BookManagementService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private bookservice: BookService
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +62,33 @@ onDelete(book: any) {
     (error) => {
     }
   );
+}
+
+onEdit(book: any){
+  this.selectedBook = book;
+  this.enableEdit = true;
+}
+
+handleBack(){
+  this.selectedBook = null;
+  this.enableEdit = false;
+}
+
+
+handleTaskUpdated(){
+  this.selectedBook = null;
+  this.enableEdit = false;
+  this.bookListLoader = true;
+   this.bookservice.getBookList().subscribe(
+      (Response)=>{
+        this.books = Response
+        this.bookListLoader = false;
+      },
+      (error)=>{
+        this.bookListLoader = false;
+
+      } 
+    )
 }
 
 

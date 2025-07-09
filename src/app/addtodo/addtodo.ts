@@ -44,6 +44,7 @@ export class Addtodo implements OnInit {
     }
 
     console.log(task)
+    
     if(this.taskData === null){
       this.todoservice.addtodoList(task).subscribe(
         (Response)=>{

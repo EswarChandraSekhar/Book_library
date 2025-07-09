@@ -11,6 +11,8 @@ import { BookManagement } from './components/book-management/book-management';
 import { Todo } from './todo/todo';
 import { Addtodo } from './addtodo/addtodo';
 import { Todolist } from './todolist/todolist';
+import { Login } from './login/login';
+import { Register } from './register/register';
 
 const routes: Routes = [
   {
@@ -69,6 +71,14 @@ const routes: Routes = [
       redirectTo: 'todolist'
     }
     ]
+  },
+  {
+    path: 'login',
+    component: Login
+  },
+  {
+    path: 'register',
+    component: Register
   },
   {
     path: '',

@@ -1,0 +1,42 @@
+<!-- Add this wrapper div -->
+<div class="d-flex justify-content-center align-items-center vh-100 bg-primary bg-gradient">
+
+  <!-- Your original login-container -->
+  <div class="login-container bg-white p-4 rounded-4 shadow">
+    <h2 class="text-center text-primary mb-4">Login to Library</h2>
+    <form>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          [(ngModel)]="email"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+          [(ngModel)]="password"
+        />
+      </div>
+
+      <button type="button" (click)="handleLogin()" class="btn btn-primary w-100">Login</button>
+
+      <div class="form-footer mt-3 text-center">
+          <small>Don't have an account? <a routerLink="/register">Register here</a></small>
+      </div>
+    </form>
+  </div>
+
+</div>

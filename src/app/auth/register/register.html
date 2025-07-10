@@ -1,0 +1,73 @@
+<!-- Wrapper to center it -->
+<div class="d-flex justify-content-center align-items-center vh-100 bg-success bg-gradient">
+
+  <!-- Registration box -->
+  <div class="register-container bg-white p-4 rounded-4 shadow" style="width: 100%; max-width: 450px; margin-top:0px;">
+    <h2 class="text-center text-success mb-4">Create Your Account</h2>
+    <form>
+      <div class="mb-3">
+        <label for="firstname" class="form-label">First Name</label>
+        <input [(ngModel)]="firstName" name="firstname"
+          type="text"
+          class="form-control"
+          id="firstname"
+          placeholder="Enter first name"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Last Name</label>
+        <input [(ngModel)]="lastName" name="lastname"
+          type="text"
+          class="form-control"
+          id="lastname"
+          placeholder="Enter last name"
+          required
+        />
+      </div>
+
+       <div class="mb-3">
+        <label for="phonenumber" class="form-label">Phone Number</label>
+        <input [(ngModel)]="phoneNumber" name="phonenumber"
+          type="text"
+          class="form-control"
+          id="phonenumber"
+          placeholder="Enter phonenumber"
+          required
+        />
+      </div>
+
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input [(ngModel)]="email" name="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input [(ngModel)]="password" name="password"
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="Create a password"
+          required
+        />
+      </div>
+
+      <button type="button" class="btn btn-success w-100" (click)="handleSubmit()" >Register</button>
+
+      <div class="form-footer mt-3 text-center">
+        <small>Already have an account? <a routerLink="/login">Login here</a></small>
+      </div>
+    </form>
+  </div>
+
+</div>
+

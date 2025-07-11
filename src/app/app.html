@@ -12,23 +12,23 @@
         <li class="nav-item">
           <a class="nav-link" (click)="handleclick('books')" [ngClass]="{'active': activeTab === 'books'}">Books</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="loginStatus === true"  class="nav-item">
           <a class="nav-link" (click)="handleclick('book-management')" [ngClass]="{'active': activeTab === 'book-management'}">Book-Management</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="loginStatus===true" class="nav-item">
           <a class="nav-link" (click)="handleclick('addbook')" [ngClass]="{'active': activeTab === 'addbook'}">Add Book</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="loginStatus=== true" class="nav-item">
           <a class="nav-link" (click)="handleclick('author')" [ngClass]="{'active': activeTab === 'author'}">Author</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="handleclick('todo')" [ngClass]="{'active': activeTab === 'todo'}">Todo</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="loginStatus === false" class="nav-item">
           <a class="nav-link" (click)="handleclick('login')" [ngClass]="{'active': activeTab === 'login'}">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="handleclick('register')" [ngClass]="{'active': activeTab === 'register'}">Register</a>
+        <li *ngIf="loginStatus=== true" class="nav-item">
+          <a class="nav-link btn btn-sm btn-primary" (click)="handleLogout()" >Logout</a>
         </li>
       </ul>
     </div>

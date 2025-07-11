@@ -11,8 +11,8 @@ import { BookManagement } from './components/book-management/book-management';
 import { Todo } from './todo/todo';
 import { Addtodo } from './addtodo/addtodo';
 import { Todolist } from './todolist/todolist';
-import { Login } from './login/login';
-import { Register } from './register/register';
+import { Login } from './auth/login/login';
+import { Register } from './auth/register/register';
 
 const routes: Routes = [
   {

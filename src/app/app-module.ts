@@ -23,8 +23,7 @@ import { BookManagement } from './components/book-management/book-management';
 import { Todo } from './todo/todo';
 import { Addtodo } from './addtodo/addtodo';
 import { Todolist } from './todolist/todolist';
-import { Login } from './login/login';
-import { Register } from './register/register';
+import { AuthModule } from './auth/auth-module';
 
 @NgModule({
   declarations: [
@@ -43,9 +42,7 @@ import { Register } from './register/register';
     BookManagement,
     Todo,
     Addtodo,
-    Todolist,
-    Login,
-    Register
+    Todolist
   ],
   imports: [
     BrowserModule,
@@ -53,7 +50,8 @@ import { Register } from './register/register';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    AuthModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

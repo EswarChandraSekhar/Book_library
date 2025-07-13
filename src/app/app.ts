@@ -15,8 +15,6 @@ export class App implements OnInit{
 
   ngOnInit(): void {
     this.authService.checkLogin()
-
-     
     this.authService.loginStatus$.subscribe(res=>{
       this.loginStatus = res;
     })

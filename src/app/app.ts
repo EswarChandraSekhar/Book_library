@@ -12,18 +12,44 @@ export class App implements OnInit{
 
   loginStatus: boolean = false;
   constructor(private Router: Router, private authService: AuthService){}
+  activeTab: string = 'home';
 
   ngOnInit(): void {
+    console.log('hello world')
     this.authService.checkLogin()
-
-     
     this.authService.loginStatus$.subscribe(res=>{
       this.loginStatus = res;
     })
 
+    //active route setup
+    let currentUrl = location.href;
+    if(currentUrl.includes('books'))
+    {
+      this.activeTab = 'books'
+    }
+    else if(currentUrl.includes('book-management'))
+    {
+      this.activeTab = 'book-management'
+    }
+     else if(currentUrl.includes('add-book'))
+    {
+      this.activeTab = 'add-book'
+    }
+    else if(currentUrl.includes('author'))
+    {
+      this.activeTab = 'author'
+    }
+    else if(currentUrl.includes('todo'))
+    {
+      this.activeTab = 'todo'
+    }
+    else if(currentUrl.includes('login'))
+    {
+      this.activeTab = 'login'
+    }
+
   }
 
-  activeTab: string = 'home';
   
   handleclick(path:any){
       this.Router.navigate(['/'+ path])
@@ -32,6 +58,7 @@ export class App implements OnInit{
 
   handleLogout(){
     this.authService.logout()
+    this.Router.navigate(['home'])
   }
 
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class Login {
   email: string = ''
   password: string = ''
-  constructor(private authService: AuthService,private snackbar: MatSnackBar){
+  constructor(private authService: AuthService,private snackbar: MatSnackBar, private router: Router,
+    private route: ActivatedRoute
+  ){
 
   }
   handleLogin(){
@@ -26,6 +29,14 @@ export class Login {
 
     this.authService.login(data).subscribe(
       res=>{
+        let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl')
+        if(returnUrl === null)
+        {
+          this.router.navigate(['home'])
+        }
+        else{
+          this.router.navigate([returnUrl])
+        }
         this.snackbar.open("Login verified successfully!",'success',{duration:5000})
       }
     )

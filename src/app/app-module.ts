@@ -24,6 +24,8 @@ import { Todo } from './todo/todo';
 import { Addtodo } from './addtodo/addtodo';
 import { Todolist } from './todolist/todolist';
 import { AuthModule } from './auth/auth-module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { AuthModule } from './auth/auth-module';
     AuthModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    {provide:HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}
   ],
   bootstrap: [App]
 })

@@ -13,6 +13,7 @@ import { Addtodo } from './addtodo/addtodo';
 import { Todolist } from './todolist/todolist';
 import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
+import { AuthGuard } from './auth/auth-guard';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
   },
   {
     path: 'addbook',
-    component: AddBook
+    component: AddBook,
+    canActivate: [AuthGuard]
   },
   {
     path: 'books',
@@ -29,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'book-management',
-    component: BookManagement
+    component: BookManagement,
+    canActivate: [AuthGuard]
   },
   {
     path: 'book/:id',
@@ -52,7 +55,8 @@ const routes: Routes = [
         pathMatch: 'full',
         redirectTo: 'author-list'
       }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'todo',

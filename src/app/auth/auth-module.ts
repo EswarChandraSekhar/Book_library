@@ -4,18 +4,20 @@ import { Login } from './login/login';
 import { Register } from './register/register';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
     Login,
-    Register,
+    Register
   ],
   imports: [
     CommonModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ]
 })
 export class AuthModule { }

@@ -12,9 +12,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class Login {
   email: string = ''
   password: string = ''
+ 
+
   constructor(private authService: AuthService,private snackbar: MatSnackBar, private router: Router,
     private route: ActivatedRoute
   ){
+
 
   }
   handleLogin(){
@@ -38,6 +41,7 @@ export class Login {
           this.router.navigate([returnUrl])
         }
         this.snackbar.open("Login verified successfully!",'success',{duration:5000})
+        this
       }
     )
 

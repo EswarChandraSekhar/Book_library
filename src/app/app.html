@@ -6,6 +6,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+        <li *ngIf="loggedInUserData !== null" class="nav-item">
+          <a class="nav-link"  >Welcome, {{loggedInUserData.username}}!</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" (click)="handleclick('home')" [ngClass]="{'active': activeTab === 'home'}">Home</a>
         </li>

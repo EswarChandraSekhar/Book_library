@@ -11,14 +11,19 @@ import { AuthService } from './auth/auth-service';
 export class App implements OnInit{
 
   loginStatus: boolean = false;
+  loggedInUserData: any = null;
   constructor(private Router: Router, private authService: AuthService){}
   activeTab: string = 'home';
 
   ngOnInit(): void {
-    console.log('hello world')
-    this.authService.checkLogin()
+    this.authService.checkLogin().subscribe(res=>{
+       
+    })
     this.authService.loginStatus$.subscribe(res=>{
       this.loginStatus = res;
+    })
+    this.authService.loggedInUserData$.subscribe(res=>{
+      this.loggedInUserData = res;
     })
 
     //active route setup
